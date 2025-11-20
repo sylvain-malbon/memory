@@ -16,7 +16,6 @@ $router = new Router();
 // Définition des routes de l'application
 // La route "/" pointe vers la méthode "index" du contrôleur HomeController
 $router->get('/', 'App\\Controllers\\HomeController@index');
-
 $router->get('/about', 'App\\Controllers\\HomeController@about');
 
 // La route "/articles" pointe vers la méthode "index" du contrôleur ArticleController

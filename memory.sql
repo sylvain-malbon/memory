@@ -1,17 +1,48 @@
--- Script SQL de base pour le projet Memory
+CREATE DATABASE IF NOT EXISTS memory
+  CHARACTER SET utf8mb4 
+  COLLATE utf8mb4_unicode_ci;
 
-CREATE DATABASE IF NOT EXISTS Memory CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE Memory;
+USE memory;
 
 -- Table cards
-id INT AUTO_INCREMENT PRIMARY KEY
-name VARCHAR(50)       -- nom ou identifiant de la carte
-image VARCHAR(255)     -- chemin vers l’image
+CREATE TABLE cards (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,       -- nom ou identifiant de la carte
+  image VARCHAR(255) NOT NULL,     -- chemin vers l’image
+  UNIQUE (name)                    -- chaque carte doit avoir un nom unique
+);
 
 -- Table games
-id INT AUTO_INCREMENT PRIMARY KEY
-player_name VARCHAR(50), -- nom du joueur (pas de table users)
-pairs INT              -- nombre de paires dans la partie
-moves INT              -- nombre de coups joués
-score FLOAT            -- calculé : moves / pairs
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE games (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  player_name VARCHAR(50) NOT NULL, -- nom du joueur (pas de table users)
+  pairs INT NOT NULL CHECK (pairs > 0),   -- nombre de paires (au moins 1)
+  moves INT NOT NULL CHECK (moves >= 0),  -- nombre de coups (pas négatif)
+  score FLOAT GENERATED ALWAYS AS (moves / pairs) STORED, -- calcul automatique
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_player_name (player_name),    -- index pour recherche rapide par joueur
+  INDEX idx_created_at (created_at)       -- index pour trier par date
+);
+
+-- Ajout d'un oubli à Table games
+ALTER TABLE games
+ADD CONSTRAINT chk_player_name CHECK (player_name <> '');
+
+-- Table intermédiaire pour relier les parties aux cartes
+CREATE TABLE game_cards (
+  game_id INT NOT NULL,
+  card_id INT NOT NULL,
+  PRIMARY KEY (game_id, card_id),
+  FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE,
+  FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE,
+  INDEX idx_game_id(game_id),
+  INDEX idx_card_id(card_id)
+);
+
+-- Vue pour afficher le classement des joueurs
+CREATE VIEW leaderboard AS
+SELECT player_name, score, created_at
+FROM games
+ORDER BY score ASC
+LIMIT 10;
+
