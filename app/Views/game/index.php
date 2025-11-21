@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue : Partie en cours du Memory Game
+ * Vue : Partie en cours du Jeu Memory
  * ------------------------------------
  * Variables reçues :
  * - $cards : tableau d'objets Card
@@ -11,7 +11,7 @@
  */
 ?>
 
-<h1><?= htmlspecialchars($title ?? 'Memory Game', ENT_QUOTES, 'UTF-8') ?></h1>
+<h1><?= htmlspecialchars($title ?? 'Jeu Memory', ENT_QUOTES, 'UTF-8') ?></h1>
 
 <div class="game-info">
     <p><strong>Joueur :</strong> <?= htmlspecialchars($playerName ?? 'Joueur', ENT_QUOTES, 'UTF-8') ?></p>

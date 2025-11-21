@@ -46,7 +46,7 @@ class GameController extends BaseController
 
         // Passe les données à la vue
         $this->render('game/index', [
-            'title' => 'Memory Game',
+            'title' => 'Jeu Memory',
             'cards' => $cards,
             'moves' => 0,
             'score' => 0,

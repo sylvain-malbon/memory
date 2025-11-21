@@ -128,6 +128,8 @@ p {
     transition: transform 0.2s;
     width: 100%;
     max-width: 180px;
+    /* Ajouter l'ombre sur le conteneur au lieu des faces */
+    filter: drop-shadow(6px 6px 0 rgba(139, 69, 19, 0.3));
 }
 
 .card:hover {
@@ -154,7 +156,8 @@ p {
     height: 100%;
     backface-visibility: hidden;
     border: 4px solid #8b4513;
-    box-shadow: 6px 6px 0 rgba(139, 69, 19, 0.3);
+    /* Retirer l'ombre d'ici */
+    /* box-shadow: 6px 6px 0 rgba(139, 69, 19, 0.3); */
     overflow: hidden;
     background: #fff;
 }
@@ -320,6 +323,7 @@ p {
     border-bottom: 2px solid #f5e6d3;
     text-align: center;
     font-weight: 600;
+    color: #2c1810; /* Couleur de base cohérente */
 }
 
 .leaderboard-table tbody tr {
@@ -337,48 +341,67 @@ p {
 .leaderboard-table .rank {
     font-size: 1.8em;
     font-weight: bold;
-    color: #8b4513;
+    color: #8b4513; /* Marron principal */
 }
 
 .leaderboard-table td.player a {
-    color: #d4524e;
+    color: #d4524e; /* Rouge japonais */
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s;
 }
 
 .leaderboard-table td.player a:hover {
-    color: #8b4513;
+    color: #8b4513; /* Marron au hover */
     text-decoration: underline;
 }
 
 .leaderboard-table .score {
     font-weight: bold;
     font-size: 1.3em;
-    color: #2d6a3f;
+    color: #5d2f0a; /* Marron foncé pour lisibilité et cohérence */
 }
 
 .leaderboard-table .date {
-    color: #8b7355;
+    color: #8b7355; /* Marron doux - couleur subtile mais lisible */
+    font-size: 0.95em;
 }
 
-/* Podium style japonais */
+/* Podium style japonais - couleurs harmonieuses */
 .leaderboard-table tbody tr.rank-1 {
-    background: #ffd700;
+    background: #ffe4b5; /* Or pâle japonisant */
+}
+
+.leaderboard-table tbody tr.rank-1 td {
+    color: #8b6914; /* Texte or foncé */
 }
 
 .leaderboard-table tbody tr.rank-2 {
-    background: #c0c0c0;
+    background: #e8e8e8; /* Argent doux */
+}
+
+.leaderboard-table tbody tr.rank-2 td {
+    color: #5a5a5a; /* Texte gris foncé */
 }
 
 .leaderboard-table tbody tr.rank-3 {
-    background: #cd7f32;
+    background: #f4d1ae; /* Bronze doux */
+}
+
+.leaderboard-table tbody tr.rank-3 td {
+    color: #8b4513; /* Texte marron */
 }
 
 .leaderboard-table tbody tr.rank-1:hover,
 .leaderboard-table tbody tr.rank-2:hover,
 .leaderboard-table tbody tr.rank-3:hover {
     background: #fff9f0;
+}
+
+.leaderboard-table tbody tr.rank-1:hover td,
+.leaderboard-table tbody tr.rank-2:hover td,
+.leaderboard-table tbody tr.rank-3:hover td {
+    color: #2c1810; /* Retour à la couleur normale au hover */
 }
 
 /* Profile - style japonais */
