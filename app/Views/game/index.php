@@ -65,11 +65,15 @@
     <a href="/">🏠 Accueil</a>
     <a href="/game">🔄 Nouvelle partie</a>
     <a href="/leaderboard">🏆 Hall of Fame</a>
-    <a href="/profile?player=<?= urlencode($playerName ?? 'Joueur') ?>">👤 Mon profil</a>
+    <?php 
+    // Utiliser la session si disponible, sinon le paramètre de la vue
+    $profilePlayer = $_SESSION['playerName'] ?? $playerName ?? 'Joueur';
+    ?>
+    <a href="/profile?player=<?= urlencode($profilePlayer) ?>">👤 Mon profil</a>
 </div>
 
 <script>
-// JavaScript pour le jeu Memory (à améliorer)
+// JavaScript pour le jeu Memory
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
     let firstCard = null;
@@ -111,6 +115,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const movesElement = document.getElementById('moves');
         const currentMoves = parseInt(movesElement.textContent);
         movesElement.textContent = currentMoves + 1;
+
+        // Sauvegarder en BDD via PHP session
+        fetch('/game/update-moves', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Score sauvegardé:', data.moves, 'coups');
+                console.log('Session active:', data.playerName, 'GameID:', data.gameId);
+            } else {
+                console.error('Erreur session:', data.error);
+            }
+        })
+        .catch(err => console.error('Erreur sauvegarde:', err));
     }
 
     function disableCards() {

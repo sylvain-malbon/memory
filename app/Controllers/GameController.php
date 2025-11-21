@@ -27,6 +27,12 @@ class GameController extends BaseController
         // Crée une nouvelle partie en BDD
         $gameId = $gameModel->create($playerName, $pairs);
 
+        // Stocker en session
+        $_SESSION['gameId'] = $gameId;
+        $_SESSION['playerName'] = $playerName;
+        $_SESSION['pairs'] = $pairs;
+        $_SESSION['moves'] = 0;
+
         // Tire les cartes aléatoirement
         $allCards = $cardModel->all();
         shuffle($allCards);
@@ -46,12 +52,38 @@ class GameController extends BaseController
 
         // Passe les données à la vue
         $this->render('game/index', [
-            'title' => 'Jeu Memory',
+            'title' => 'Memory Game',
             'cards' => $cards,
             'moves' => 0,
             'score' => 0,
             'gameId' => $gameId,
             'playerName' => $playerName
+        ]);
+    }
+
+    public function updateMoves()
+    {
+        header('Content-Type: application/json');
+        
+        if (!isset($_SESSION['gameId'])) {
+            echo json_encode(['success' => false, 'error' => 'No active game']);
+            return;
+        }
+        
+        $_SESSION['moves']++;
+        
+        $gameModel = new GameModel();
+        $gameModel->updateMoves($_SESSION['gameId'], $_SESSION['moves']);
+        
+        $game = $gameModel->find($_SESSION['gameId']);
+        
+        // Retourner aussi le nom du joueur pour vérification
+        echo json_encode([
+            'success' => true,
+            'moves' => $_SESSION['moves'],
+            'score' => $game ? $game->getScore() : 0,
+            'playerName' => $_SESSION['playerName'] ?? 'Joueur',
+            'gameId' => $_SESSION['gameId']
         ]);
     }
 

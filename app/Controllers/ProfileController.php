@@ -8,8 +8,8 @@ class ProfileController extends BaseController
 {
     public function show()
     {
-        // Récupérer le nom du joueur depuis les paramètres
-        $playerName = $_GET['player'] ?? 'Joueur';
+        // Priorité : paramètre GET, puis session, puis valeur par défaut
+        $playerName = $_GET['player'] ?? $_SESSION['playerName'] ?? 'Joueur';
 
         $stmt = \Core\Database::getPdo()->prepare(
             'SELECT id, pairs, moves, score, created_at 

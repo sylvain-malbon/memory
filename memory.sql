@@ -5,49 +5,46 @@ CREATE DATABASE IF NOT EXISTS memory
 USE memory;
 
 -- Table cards
-CREATE TABLE cards (
+CREATE TABLE IF NOT EXISTS cards (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,       -- nom ou identifiant de la carte
-  image VARCHAR(255) NOT NULL,     -- chemin vers l’image
-  UNIQUE (name)                    -- chaque carte doit avoir un nom unique
-);
+  name VARCHAR(50) NOT NULL,
+  image VARCHAR(255) NOT NULL,
+  UNIQUE KEY uk_name (name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table games
-CREATE TABLE games (
+CREATE TABLE IF NOT EXISTS games (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  player_name VARCHAR(50) NOT NULL, -- nom du joueur (pas de table users)
-  pairs INT NOT NULL CHECK (pairs > 0),   -- nombre de paires (au moins 1)
-  moves INT NOT NULL CHECK (moves >= 0),  -- nombre de coups (pas négatif)
-  score FLOAT GENERATED ALWAYS AS (moves / pairs) STORED, -- calcul automatique
+  player_name VARCHAR(50) NOT NULL CHECK (player_name <> ''),
+  pairs INT NOT NULL CHECK (pairs > 0),
+  moves INT NOT NULL DEFAULT 0 CHECK (moves >= 0),
+  score FLOAT GENERATED ALWAYS AS (moves / pairs) STORED,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  INDEX idx_player_name (player_name),    -- index pour recherche rapide par joueur
-  INDEX idx_created_at (created_at)       -- index pour trier par date
-);
-
--- Ajout d'un oubli à Table games
-ALTER TABLE games
-ADD CONSTRAINT chk_player_name CHECK (player_name <> '');
+  INDEX idx_player_name (player_name),
+  INDEX idx_created_at (created_at),
+  INDEX idx_score (score)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table intermédiaire pour relier les parties aux cartes
-CREATE TABLE game_cards (
+CREATE TABLE IF NOT EXISTS game_cards (
   game_id INT NOT NULL,
   card_id INT NOT NULL,
   PRIMARY KEY (game_id, card_id),
   FOREIGN KEY (game_id) REFERENCES games(id) ON DELETE CASCADE,
   FOREIGN KEY (card_id) REFERENCES cards(id) ON DELETE CASCADE,
-  INDEX idx_game_id(game_id),
-  INDEX idx_card_id(card_id)
-);
+  INDEX idx_game_id (game_id),
+  INDEX idx_card_id (card_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Vue pour afficher le classement des joueurs
-CREATE VIEW leaderboard AS
+-- Vue pour afficher le classement des 10 meilleurs joueurs
+CREATE OR REPLACE VIEW leaderboard AS
 SELECT player_name, score, created_at
 FROM games
-ORDER BY score ASC
+ORDER BY score ASC, created_at ASC
 LIMIT 10;
 
--- Ajout des cartes
-INSERT INTO cards (name, image) VALUES
+-- Ajout des cartes (INSERT IGNORE évite les doublons si réexécuté)
+INSERT IGNORE INTO cards (name, image) VALUES
 ('Abeille', 'Abeille.png'),
 ('Carpe', 'Carpe.png'),
 ('Chien Verrin', 'ChienVerrin.png'),
@@ -71,3 +68,7 @@ INSERT INTO cards (name, image) VALUES
 ('Souris', 'Souris.png'),
 ('Tigre', 'Tigre.png'),
 ('Tortue', 'Tortue.png');
+
+-- Commandes utilitaires (à exécuter manuellement si besoin)
+-- Pour reset complet : TRUNCATE game_cards; TRUNCATE games;
+-- Pour voir les stats : SELECT COUNT(*) as total_parties, COUNT(DISTINCT player_name) as joueurs FROM games;

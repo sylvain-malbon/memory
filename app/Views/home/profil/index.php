@@ -16,7 +16,7 @@
 <?php if (!empty($games)): ?>
     <div class="profile-stats">
         <div class="stat-card">
-            <div class="stat-icon">🎮</div>
+            <div class="stat-icon">🎴</div>
             <div class="stat-value"><?= count($games) ?></div>
             <div class="stat-label">Parties jouées</div>
         </div>
@@ -78,12 +78,12 @@
         <div class="no-games-icon">😕</div>
         <p>Aucune partie jouée pour le moment.</p>
         <p>Lancez-vous et établissez votre premier record !</p>
-        <a href="/game" class="btn btn-start-game">🎮 Commencer à jouer</a>
+        <a href="/game" class="btn btn-start-game">🎴 Commencer à jouer</a>
     </div>
 <?php endif; ?>
 
 <div class="actions">
     <a href="/">🏠 Retour à l'accueil</a>
-    <a href="/game">🎮 Nouvelle partie</a>
+    <a href="/game">🎴 Nouvelle partie</a>
     <a href="/leaderboard">🏆 Hall of Fame</a>
 </div>

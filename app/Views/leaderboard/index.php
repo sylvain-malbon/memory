@@ -67,5 +67,5 @@
 
 <div class="actions">
     <a href="/" class="btn">🏠 Accueil</a>
-    <a href="/game" class="btn btn-primary">🎮 Jouer maintenant</a>
+    <a href="/game" class="btn btn-primary">🎴 Jouer maintenant</a>
 </div>
