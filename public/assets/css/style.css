@@ -68,6 +68,23 @@ main {
     margin: 0 auto;
     padding: 40px 20px;
     text-align: center;
+    position: relative;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/images/Trame_Kamon-Coquillage.png');
+    background-repeat: repeat;
+    background-size: 60px 60px;
+    opacity: 0.05;
+    filter: sepia(100%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Titres style japonais */
