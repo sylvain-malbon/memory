@@ -29,7 +29,7 @@
                  data-card-name="<?= htmlspecialchars($card->getName(), ENT_QUOTES, 'UTF-8') ?>">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="/assets/images/card-back.png" alt="Carte cachée">
+                        <img src="/assets/images/card-back.png" alt="carte cachée">
                     </div>
                     <div class="card-back">
                         <img src="/assets/images/<?= htmlspecialchars($card->getImage(), ENT_QUOTES, 'UTF-8') ?>" 
@@ -62,9 +62,9 @@
 <?php endif; ?>
 
 <div class="actions">
-    <a href="/">🏠 Accueil</a> |
-    <a href="/game">🔄 Nouvelle partie</a> |
-    <a href="/leaderboard">🏆 Hall of Fame</a> |
+    <a href="/">🏠 Accueil</a>
+    <a href="/game">🔄 Nouvelle partie</a>
+    <a href="/leaderboard">🏆 Hall of Fame</a>
     <a href="/profile?player=<?= urlencode($playerName ?? 'Joueur') ?>">👤 Mon profil</a>
 </div>
 
