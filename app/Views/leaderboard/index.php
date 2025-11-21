@@ -7,7 +7,7 @@
  */
 ?>
 
-<h1><?= htmlspecialchars($title ?? 'Hall of Fame', ENT_QUOTES, 'UTF-8') ?> 🏆</h1>
+<h1>🏆 <?= htmlspecialchars($title ?? 'Hall of Fame', ENT_QUOTES, 'UTF-8') ?> 🏆</h1>
 
 <p class="leaderboard-description">
     Les 10 meilleurs joueurs (score = nombre de coups / nombre de paires)<br>
@@ -48,7 +48,10 @@
                             <?= number_format($entry['score'], 2) ?>
                         </td>
                         <td class="date">
-                            <?= date('d/m/Y H:i', strtotime($entry['created_at'])) ?>
+                            le
+                            <?= date('d.m.Y', strtotime($entry['created_at'])) ?>
+                            à
+                            <?= date('H:i', strtotime($entry['created_at'])) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

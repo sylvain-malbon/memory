@@ -9,7 +9,7 @@
 </ul>
 
 <div class="actions">
-    <a href="/game">Retour au jeu</a> |
-    <a href="/leaderboard">Hall of Fame</a> |
+    <a href="/game">Retour au jeu</a>
+    <a href="/leaderboard">Hall of Fame</a>
     <a href="/profile?player=<?= urlencode($game->getPlayerName()); ?>">Profil du joueur</a>
 </div>

@@ -1,10 +1,10 @@
     <h1><?= htmlspecialchars($title ?? 'Accueil', ENT_QUOTES, 'UTF-8') ?></h1>
-    <div class="home-welcome">
-
+  
     
-    <p>Bienvenue dans le jeu Memory 🎮</p>
-    <p>Choisissez une action pour commencer :</p>
+    <p class="home-description">Bienvenue dans le jeu Memory – Nippon Edition 🎴<br>
+Choisissez une action pour commencer :</p>
 
+    <div class="home-welcome">
     <nav>
         <ul>
             <li><a href="/game">▶️ Lancer une nouvelle partie</a></li>

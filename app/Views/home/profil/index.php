@@ -83,7 +83,7 @@
 <?php endif; ?>
 
 <div class="actions">
-    <a href="/">🏠 Retour à l'accueil</a> |
-    <a href="/game">🎮 Nouvelle partie</a> |
+    <a href="/">🏠 Retour à l'accueil</a>
+    <a href="/game">🎮 Nouvelle partie</a>
     <a href="/leaderboard">🏆 Hall of Fame</a>
 </div>

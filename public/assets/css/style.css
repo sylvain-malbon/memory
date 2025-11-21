@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Noto Serif JP', 'MS PMincho', serif;
     background: #f5e6d3;
     min-height: 100vh;
     color: #2c1810;
@@ -175,11 +175,14 @@ p {
 }
 
 .card-front::before {
-    content: '花札';
-    font-size: 2em;
+    content: '貝合わせ';
+    font-size: 1.5em;
     color: #fff;
     font-weight: bold;
     text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+    writing-mode: vertical-rl; /* Écriture verticale de droite à gauche */
+    text-orientation: upright; /* Caractères droits */
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
 }
 
 .card-front img, .card-back img {
@@ -316,6 +319,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 2px;
     border-bottom: 3px solid #5d2f0a;
+    color: #f5e6d3; /* Tous les titres en beige clair */
 }
 
 .leaderboard-table td {
@@ -341,7 +345,7 @@ p {
 .leaderboard-table .rank {
     font-size: 1.8em;
     font-weight: bold;
-    color: #8b4513; /* Marron principal */
+    color: #d4524e; /* Rouge japonais au lieu de marron sur marron */
 }
 
 .leaderboard-table td.player a {
@@ -359,11 +363,11 @@ p {
 .leaderboard-table .score {
     font-weight: bold;
     font-size: 1.3em;
-    color: #5d2f0a; /* Marron foncé pour lisibilité et cohérence */
+    color: #c49a6c; /* Marron clair doré */
 }
 
 .leaderboard-table .date {
-    color: #8b7355; /* Marron doux - couleur subtile mais lisible */
+    color: #b8a490; /* Beige/marron très clair */
     font-size: 0.95em;
 }
 
@@ -602,6 +606,21 @@ p {
 }
 
 /* Page d'accueil - styles */
+.home-description {
+    text-align: center;
+    color: #8b4513;
+    margin: 20px auto 40px auto;
+    font-size: 1.2em;
+    max-width: 800px;
+    font-weight: 600;
+}
+
+.home-description em {
+    color: #d4524e;
+    font-style: normal;
+    font-weight: bold;
+}
+
 .home-welcome {
     background: #fff;
     padding: 40px;
