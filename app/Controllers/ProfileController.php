@@ -1,13 +1,15 @@
 <?php
 namespace App\Controllers;
 
+use Core\BaseController;
 use App\Models\GameModel;
 
-class ProfileController
+class ProfileController extends BaseController
 {
-    public function show(string $playerName)
+    public function show()
     {
-        $gameModel = new GameModel();
+        // Récupérer le nom du joueur depuis les paramètres
+        $playerName = $_GET['player'] ?? 'Joueur';
 
         $stmt = \Core\Database::getPdo()->prepare(
             'SELECT id, pairs, moves, score, created_at 
@@ -18,6 +20,10 @@ class ProfileController
         $stmt->execute(['player_name' => $playerName]);
         $games = $stmt->fetchAll();
 
-        require 'views/profile.php';
+        $this->render('home/profil/index', [
+            'title' => 'Profil de ' . htmlspecialchars($playerName),
+            'playerName' => $playerName,
+            'games' => $games
+        ]);
     }
 }

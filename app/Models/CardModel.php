@@ -9,7 +9,7 @@ class CardModel
     public function all(): array
     {
         $stmt = Database::getPdo()->query(
-            'SELECT id, title, body FROM cards ORDER BY id DESC'
+            'SELECT id, name, image FROM cards ORDER BY id DESC'
         );
 
         $rows = $stmt->fetchAll();

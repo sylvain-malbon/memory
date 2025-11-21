@@ -12,6 +12,8 @@ $router = new Router();
 $router->get('/', 'App\\Controllers\\HomeController@index');
 
 $router->get('/game', 'App\\Controllers\\GameController@start'); 
+$router->get('/game/play', 'App\\Controllers\\GameController@play'); 
+$router->post('/game/update', 'App\\Controllers\\GameController@update'); 
 
 $router->get('/leaderboard', 'App\\Controllers\\LeaderboardController@index'); 
 

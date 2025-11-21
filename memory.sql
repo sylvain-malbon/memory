@@ -46,3 +46,28 @@ FROM games
 ORDER BY score ASC
 LIMIT 10;
 
+-- Ajout des cartes
+INSERT INTO cards (name, image) VALUES
+('Abeille', 'Abeille.png'),
+('Carpe', 'Carpe.png'),
+('Chien Verrin', 'ChienVerrin.png'),
+('Coq', 'Coq.png'),
+('Corbeau', 'Corbeau.png'),
+('Dragon', 'Dragon.png'),
+('Faisan', 'Faisan.png'),
+('Goéland', 'Goéland.png'),
+('Grenouille', 'Grenouille.png'),
+('Grue', 'Grue.png'),
+('Lapin', 'Lapin.png'),
+('Lucioles', 'Lucioles.png'),
+('Oiseau', 'Oiseau.png'),
+('Paon', 'Paon.png'),
+('Pic', 'Pic.png'),
+('Poulpe', 'Poulpe.png'),
+('Renard', 'Renard.png'),
+('Sanglier', 'Sanglier.png'),
+('Serpent', 'Serpent.png'),
+('Shika', 'Shika.png'),
+('Souris', 'Souris.png'),
+('Tigre', 'Tigre.png'),
+('Tortue', 'Tortue.png');

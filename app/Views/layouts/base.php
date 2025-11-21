@@ -12,9 +12,9 @@
 
   <nav>
     <a href="/">Accueil</a> 
-    <a href="/games">Nouvelle partie</a>
+    <a href="/game">Nouvelle partie</a>
     <a href="/leaderboard">Hall of Fame</a>
-    <a href="/profiles">Mon profil</a>
+    <a href="/profile">Mon profil</a>
   </nav>
 
   <main>

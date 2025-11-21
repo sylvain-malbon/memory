@@ -1,14 +1,13 @@
 <?php
 namespace App\Controllers;
 
+use Core\BaseController;
 use App\Models\GameModel;
 
-class LeaderboardController
+class LeaderboardController extends BaseController
 {
     public function index()
     {
-        $gameModel = new GameModel();
-
         // Classement des 10 meilleurs scores
         $stmt = \Core\Database::getPdo()->query(
             'SELECT player_name, score, created_at 
@@ -18,6 +17,9 @@ class LeaderboardController
         );
         $leaderboard = $stmt->fetchAll();
 
-        require 'views/leaderboard.php';
+        $this->render('leaderboard/index', [
+            'title' => 'Hall of Fame',
+            'leaderboard' => $leaderboard
+        ]);
     }
 }
