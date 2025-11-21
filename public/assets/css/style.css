@@ -311,17 +311,6 @@ p {
     color: #f5e6d3;
 }
 
-.leaderboard-table th {
-    padding: 20px;
-    text-align: center;
-    font-size: 1em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 3px solid #5d2f0a;
-    color: #f5e6d3; /* Tous les titres en beige clair */
-}
-
 .leaderboard-table td {
     padding: 18px 20px;
     border-bottom: 2px solid #f5e6d3;
@@ -345,7 +334,7 @@ p {
 .leaderboard-table .rank {
     font-size: 1.8em;
     font-weight: bold;
-    color: #d4524e; /* Rouge japonais au lieu de marron sur marron */
+    color: #d4524e; /* Rouge japonais pour les cellules du corps */
 }
 
 .leaderboard-table td.player a {
@@ -406,6 +395,17 @@ p {
 .leaderboard-table tbody tr.rank-2:hover td,
 .leaderboard-table tbody tr.rank-3:hover td {
     color: #2c1810; /* Retour à la couleur normale au hover */
+}
+
+.leaderboard-table th {
+    padding: 20px;
+    text-align: center;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #5d2f0a;
+    color: #f5e6d3 !important; /* Tous les titres en beige clair */
 }
 
 /* Profile - style japonais */
