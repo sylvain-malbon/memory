@@ -18,13 +18,37 @@ nav {
     padding: 20px;
     border-bottom: 4px solid #5d2f0a;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-logo {
+    font-size: 3em;
+    transition: transform 0.3s;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.nav-logo:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
     color: #f5e6d3;
     text-decoration: none;
     padding: 10px 25px;
-    margin: 0 5px;
+    margin: 0;
     border: 2px solid #f5e6d3;
     display: inline-block;
     transition: all 0.3s;
@@ -691,10 +715,25 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-logo {
+        font-size: 2.5em;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    
     nav a {
         padding: 8px 15px;
         margin: 5px;
         font-size: 0.8em;
+        width: 100%;
     }
     
     .card-front::before {
@@ -710,6 +749,10 @@ p {
     
     .profile-stats {
         grid-template-columns: 1fr;
+    }
+    
+    .nav-logo {
+        font-size: 2em;
     }
     
     nav a {

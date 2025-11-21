@@ -29,7 +29,7 @@
                  data-card-name="<?= htmlspecialchars($card->getName(), ENT_QUOTES, 'UTF-8') ?>">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="/assets/images/card-back.png" alt="carte cachée">
+                        <img src="/assets/images/Coquillage.png" alt="carte cachée">
                     </div>
                     <div class="card-back">
                         <img src="/assets/images/<?= htmlspecialchars($card->getImage(), ENT_QUOTES, 'UTF-8') ?>" 

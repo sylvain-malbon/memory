@@ -44,7 +44,9 @@ ORDER BY score ASC, created_at ASC
 LIMIT 10;
 
 -- Ajout des cartes (INSERT IGNORE évite les doublons si réexécuté)
+-- Note: L'image Coquillage.png est utilisée pour le dos des cartes
 INSERT IGNORE INTO cards (name, image) VALUES
+('Coquillage', 'Coquillage.png'),
 ('Abeille', 'Abeille.png'),
 ('Carpe', 'Carpe.png'),
 ('Chien Verrin', 'ChienVerrin.png'),

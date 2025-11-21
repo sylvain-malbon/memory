@@ -11,11 +11,14 @@
 <body>
 
   <nav>
+        <span class="nav-logo">🎴</span>
+    <div class="nav-links">
     <a href="/">Accueil</a> 
     <a href="/game">Nouvelle partie</a>
     <a href="/leaderboard">Hall of Fame</a>
     <a href="/profile">Mon profil</a>
     <a href="/admin" style="color: #d4524e;">⚙️ Admin</a>
+    </div>
   </nav>
 
   <main>
