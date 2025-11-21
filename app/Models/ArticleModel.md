@@ -33,9 +33,9 @@ class ArticleModel
      * Récupère un article spécifique par son identifiant
      *
      * @param int $id Identifiant unique de l'article
-     * @return array|null Retourne l'article trouvé ou null si aucun résultat
+     * @return array Retourne l'article trouvé ou null si aucun résultat
      */
-    public function find(int $id): ?array
+    public function find(int $id): array
     {
         // Prépare une requête SQL sécurisée (évite les injections SQL via PDO)
         $stmt = Database::getPdo()->prepare(
@@ -49,6 +49,6 @@ class ArticleModel
         $row = $stmt->fetch();
 
         // Retourne l'article si trouvé, sinon null
-        return $row ?: null;
+        return $row ?: [];
     }
 }

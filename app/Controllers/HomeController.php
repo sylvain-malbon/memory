@@ -6,32 +6,37 @@ use Core\BaseController;
 /**
  * Classe HomeController
  * ----------------------
- * Contrôleur responsable de la gestion de la page d'accueil.
+ * Contrôleur responsable de la page d'accueil et des infos générales.
  * Hérite de BaseController afin de bénéficier des méthodes utilitaires
  * comme render() pour afficher les vues.
  */
 class HomeController extends BaseController
 {
     /**
-     * Action principale (point d'entrée de la page d'accueil)
+     * Page d'accueil
      *
      * @return void
      */
     public function index(): void
     {
-        // Appelle la méthode render() de BaseController
-        // - Charge la vue "app/Views/home/index.php"
-        // - Injecte le tableau de paramètres (ici, une variable $title utilisable dans la vue)
-        // - Insère le contenu de la vue dans le layout global "base.php"
+        // On affiche la vue "home/index.php"
+        // avec un titre et éventuellement des liens vers le jeu
         $this->render('home/index', [
-            'title' => 'Bienvenue sur le mini-MVC'
+            'title' => 'Jeu Memory',
+            'subtitle' => 'Choisissez une partie, consultez le classement ou votre profil'
         ]);
     }
 
+    /**
+     * Page "À propos"
+     *
+     * @return void
+     */
     public function about(): void
     {
-$this->render('home/about', [
-'title' => 'à propos de nous !!'
-]);
+        $this->render('home/about', [
+            'title' => 'À propos du jeu Memory',
+            'subtitle' => 'Un petit jeu de paires en version 2.0'
+        ]);
     }
 }
