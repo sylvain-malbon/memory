@@ -52,15 +52,15 @@ main {
 /* 🃏 Cartes du jeu */
 .board {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: 15px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
 }
 
 .card {
-    aspect-ratio: 3/4;
+    aspect-ratio: 1 / 1; /* Cartes carrées au lieu de 3/4 */
     cursor: pointer;
     position: relative;
     transition: transform 0.3s;
@@ -91,6 +91,7 @@ main {
     backface-visibility: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden; /* Important pour que l'image ne dépasse pas */
 }
 
 .card-back {
@@ -100,8 +101,9 @@ main {
 .card-front img, .card-back img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Remplit toute la carte en gardant les proportions */
     border-radius: 8px;
+    display: block; /* Évite les espaces blancs sous l'image */
 }
 
 .card.matched {
@@ -353,11 +355,21 @@ main {
     .profile-table .date {
         font-size: 0.8em;
     }
+
+    .board {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur tablette */
+        gap: 10px;
+    }
 }
 
 @media (max-width: 480px) {
     .profile-stats {
         grid-template-columns: 1fr;
+    }
+
+    .board {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile */
+        gap: 8px;
     }
 }
 

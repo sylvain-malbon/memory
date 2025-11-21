@@ -50,10 +50,10 @@
             <div class="form-group">
                 <label for="pairs">Nombre de paires :</label>
                 <select id="pairs" name="pairs">
-                    <option value="4">Facile (4 paires)</option>
-                    <option value="6" selected>Moyen (6 paires)</option>
-                    <option value="8">Difficile (8 paires)</option>
-                    <option value="10">Expert (10 paires)</option>
+                    <option value="3">Facile (3 paires - 6 cartes)</option>
+                    <option value="6" selected>Moyen (6 paires - 12 cartes)</option>
+                    <option value="9">Difficile (9 paires - 18 cartes)</option>
+                    <option value="12">Ultime (12 paires - 24 cartes)</option>
                 </select>
             </div>
             <button type="submit" class="btn-start">Commencer</button>
