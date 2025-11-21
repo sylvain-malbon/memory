@@ -199,7 +199,7 @@ p {
 }
 
 .card-front::before {
-    content: '貝合わせ';
+    content: '';
     font-size: 1.5em;
     color: #fff;
     font-weight: bold;
