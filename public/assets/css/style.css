@@ -78,10 +78,10 @@ main::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/assets/images/Trame_Kamon-Coquillage.png');
+    background-image: url('/assets/images/Trame-japonaise_Coquillages.png');
     background-repeat: repeat;
-    background-size: 60px 60px;
-    opacity: 0.05;
+    background-size: 10% auto;
+    opacity: 0.15;
     filter: sepia(100%);
     pointer-events: none;
     z-index: -1;

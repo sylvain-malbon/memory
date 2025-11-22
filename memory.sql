@@ -46,7 +46,6 @@ LIMIT 10;
 -- Ajout des cartes (INSERT IGNORE évite les doublons si réexécuté)
 -- Note: L'image Coquillage.png est utilisée pour le dos des cartes
 INSERT IGNORE INTO cards (name, image) VALUES
-('Coquillage', 'Coquillage.png'),
 ('Abeille', 'Abeille.png'),
 ('Carpe', 'Carpe.png'),
 ('Chien Verrin', 'ChienVerrin.png'),
@@ -70,7 +69,3 @@ INSERT IGNORE INTO cards (name, image) VALUES
 ('Souris', 'Souris.png'),
 ('Tigre', 'Tigre.png'),
 ('Tortue', 'Tortue.png');
-
--- Commandes utilitaires (à exécuter manuellement si besoin)
--- Pour reset complet : TRUNCATE game_cards; TRUNCATE games;
--- Pour voir les stats : SELECT COUNT(*) as total_parties, COUNT(DISTINCT player_name) as joueurs FROM games;
