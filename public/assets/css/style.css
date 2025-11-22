@@ -25,15 +25,52 @@ nav {
     flex-wrap: wrap;
 }
 
+/* Conteneur du logo avec lien */
+nav > a:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+nav > a:first-child:hover {
+    transform: translateY(-3px);
+    background: transparent;
+}
+
 .nav-logo {
-    font-size: 3em;
-    transition: transform 0.3s;
+    height: 70px;
+    width: auto;
+    transition: all 0.3s ease;
     cursor: pointer;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
+    display: block;
+    border-radius: 8px;
 }
 
 .nav-logo:hover {
-    transform: rotate(15deg) scale(1.1);
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)) brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* Style pour l'emoji de fallback */
+.nav-logo-emoji {
+    font-size: 3.5em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
+    display: inline-block;
+    line-height: 1;
+}
+
+.nav-logo-emoji:hover {
+    transform: rotate(10deg) scale(1.1);
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
 }
 
 .nav-links {
@@ -735,10 +772,15 @@ p {
     nav {
         flex-direction: column;
         gap: 15px;
+        padding: 15px;
     }
     
     .nav-logo {
-        font-size: 2.5em;
+        height: 55px;
+    }
+    
+    .nav-logo-emoji {
+        font-size: 2.8em;
     }
     
     .nav-links {
@@ -769,7 +811,11 @@ p {
     }
     
     .nav-logo {
-        font-size: 2em;
+        height: 45px;
+    }
+    
+    .nav-logo-emoji {
+        font-size: 2.2em;
     }
     
     nav a {

@@ -11,7 +11,13 @@
 <body>
 
   <nav>
-        <span class="nav-logo">🎴</span>
+    <a href="/" aria-label="Retour à l'accueil">
+      <img src="/assets/images/Logo-Memory.png" 
+           alt="Memory Hanafuda - Logo du jeu" 
+           class="nav-logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+      <span class="nav-logo-emoji" style="display: none;" role="img" aria-label="Carte Hanafuda">🎴</span>
+    </a>
     <div class="nav-links">
     <a href="/">Accueil</a> 
     <a href="/game">Nouvelle partie</a>
