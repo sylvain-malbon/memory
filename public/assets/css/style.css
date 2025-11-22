@@ -699,6 +699,72 @@ p {
     font-weight: bold;
 }
 
+/* Logo inline dans le texte */
+.logo-inline {
+    height: 1.1em;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 2px;
+    border-radius: 4px;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo-inline:hover {
+    transform: scale(1.05);
+}
+
+.logo-inline-fallback {
+    display: none;
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+/* Logo dans les boutons et liens d'action */
+.actions a img,
+.btn-start-game img,
+.btn-primary img {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 3px;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.actions a:hover img,
+.btn-start-game:hover img,
+.btn-primary:hover img {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Logo dans les icônes de statistiques */
+.stat-icon img {
+    width: auto;
+    height: 1em;
+    display: inline-block;
+    border-radius: 6px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon img {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Harmonisation du comportement des emojis fallback */
+.stat-icon span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon span {
+    transform: scale(1.1) rotate(10deg);
+}
+
 .home-welcome {
     background: #fff;
     padding: 40px;
@@ -724,13 +790,13 @@ p {
 }
 
 .home-welcome nav ul {
-    list-style: none; /* Enlève les puces */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .home-welcome nav ul li {
-    margin: 20px 0; /* Espace entre les éléments */
+    margin: 20px 0;
 }
 
 .home-welcome nav ul li a {
@@ -798,6 +864,20 @@ p {
     .card-front::before {
         font-size: 1.5em;
     }
+    
+    /* Ajustement des logos inline en responsive */
+    .logo-inline {
+        height: 1em;
+    }
+    
+    .actions a img,
+    .btn-start-game img {
+        height: 0.95em;
+    }
+    
+    .stat-icon img {
+        height: 0.9em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -821,5 +901,19 @@ p {
     nav a {
         display: block;
         margin: 5px 0;
+    }
+    
+    /* Logos encore plus petits sur mobile */
+    .logo-inline {
+        height: 0.95em;
+    }
+    
+    .actions a img,
+    .btn-start-game img {
+        height: 0.9em;
+    }
+    
+    .stat-icon img {
+        height: 0.85em;
     }
 }

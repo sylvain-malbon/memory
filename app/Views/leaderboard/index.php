@@ -67,5 +67,11 @@
 
 <div class="actions">
     <a href="/" class="btn">🏠 Accueil</a>
-    <a href="/game" class="btn btn-primary">🎴 Jouer maintenant</a>
+    <a href="/game" class="btn btn-primary">
+        <img src="/assets/images/Logo-Memory.png" 
+             alt="" 
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span style="display: none;">🎴</span>
+        Jouer maintenant
+    </a>
 </div>
