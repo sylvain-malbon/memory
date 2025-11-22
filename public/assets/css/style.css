@@ -44,13 +44,15 @@ nav > a:first-child:hover {
 }
 
 .nav-logo {
+    margin-top: 0.01em;
+    border-bottom: 0.01em solid black;
     height: 70px;
     width: auto;
     transition: all 0.3s ease;
     cursor: pointer;
     filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
     display: block;
-    border-radius: 8px;
+    border-radius:6px;
 }
 
 .nav-logo:hover {
@@ -119,7 +121,7 @@ main::before {
     background-repeat: repeat;
     background-size: 10% auto;
     opacity: 0.15;
-    filter: sepia(100%);
+    filter: invert(1);
     pointer-events: none;
     z-index: -1;
 }
@@ -721,38 +723,50 @@ p {
     vertical-align: middle;
 }
 
+/* Logo dans la description d'accueil - ajustements spécifiques */
+.home-description .logo-inline {
+    height: 1.4em;
+    border-radius: 2px;
+    vertical-align: -0.3em;
+}
+
+.home-description .logo-inline:hover {
+    transform: none;
+}
+
 /* Logo dans les boutons et liens d'action */
 .actions a img,
 .btn-start-game img,
 .btn-primary img {
-    height: 1em;
-    width: auto;
+    height: 1.20em;
+    width: 0.90em;
     vertical-align: middle;
     display: inline-block;
     margin-right: 5px;
-    border-radius: 3px;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
+    border-radius: 2px;
+    border: 0.01em solid black;
+    transform: translateY(-0.05rem);
 }
 
 .actions a:hover img,
 .btn-start-game:hover img,
 .btn-primary:hover img {
-    transform: scale(1.15) rotate(5deg);
+    transform: translateY(-0.05rem);
 }
 
 /* Logo dans les icônes de statistiques */
 .stat-icon img {
+    margin-bottom: 0.25rem;
     width: auto;
     height: 1em;
     display: inline-block;
-    border-radius: 6px;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
+    border-radius: 4px;
+    transform: translateY(0.5rem);
 }
 
 .stat-card:hover .stat-icon img {
-    transform: scale(1.1) rotate(10deg);
+    transform: translateY(0.5rem);
+}
 }
 
 /* Harmonisation du comportement des emojis fallback */
