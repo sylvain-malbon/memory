@@ -98,52 +98,46 @@ nav > a:first-child:hover {
 .nav-texture::before {
     content: '';
     position: absolute;
-   top: -35px;
+    top: -35px;
     left: -100vw;
     right: -100vw;
     bottom: -35px;
-background-image: 
-        repeating-linear-gradient(
-            -1deg,
-            rgba(93, 47, 10, 0.6) 0px,
-            transparent 1px,
-            transparent 3px,
-            rgba(93, 47, 10, 0.6) 4px
-        ),
+    background-image: 
+        /* Nœuds du bois - moyennement marqués */
+        radial-gradient(ellipse 100px 30px at 20% 50%, rgba(93, 47, 10, 0.55), transparent),
+        radial-gradient(ellipse 80px 25px at 60% 50%, rgba(93, 47, 10, 0.45), transparent),
+        radial-gradient(ellipse 60px 20px at 85% 50%, rgba(93, 47, 10, 0.5), transparent),
+        /* Veines fines - moyennement contrastées */
         repeating-linear-gradient(
             0deg,
-            rgba(93, 47, 10, 0.6) 0px,
-            transparent 1px,
-            transparent 3px,
-            rgba(93, 47, 10, 0.6) 4px
+            transparent,
+            transparent 2px,
+            rgba(93, 47, 10, 0.45) 2px,
+            rgba(93, 47, 10, 0.45) 3px
         ),
         repeating-linear-gradient(
-            1deg,
-            rgba(93, 47, 10, 0.6) 0px,
-            transparent 1px,
+            -0.5deg,
+            transparent,
             transparent 3px,
-            rgba(93, 47, 10, 0.6) 4px
+            rgba(93, 47, 10, 0.35) 3px,
+            rgba(93, 47, 10, 0.35) 4px
         ),
         repeating-linear-gradient(
+            0.5deg,
+            transparent,
+            transparent 4px,
+            rgba(93, 47, 10, 0.3) 4px,
+            rgba(93, 47, 10, 0.3) 5px
+        ),
+        /* Grain du bois - dégradés moyens */
+        linear-gradient(
             0deg,
-            rgba(139, 69, 19, 0.4) 0px,
-            rgba(139, 69, 19, 0.2) 12px,
-            rgba(139, 69, 19, 0.05) 24px,
-            rgba(139, 69, 19, 0.2) 36px
-        ),
-        repeating-linear-gradient(
-            1deg,
-            rgba(139, 69, 19, 0.4) 0px,
-            rgba(139, 69, 19, 0.2) 12px,
-            rgba(139, 69, 19, 0.05) 24px,
-            rgba(139, 69, 19, 0.2) 36px
-        ),
-        repeating-linear-gradient(
-            2deg,
-            rgba(139, 69, 19, 0.4) 0px,
-            rgba(139, 69, 19, 0.2) 12px,
-            rgba(139, 69, 19, 0.05) 24px,
-            rgba(139, 69, 19, 0.2) 36px
+            rgba(139, 69, 19, 0.15) 0%,
+            rgba(139, 69, 19, 0.35) 20%,
+            rgba(139, 69, 19, 0.2) 40%,
+            rgba(139, 69, 19, 0.3) 60%,
+            rgba(139, 69, 19, 0.15) 80%,
+            rgba(139, 69, 19, 0.25) 100%
         );
     pointer-events: none;
     z-index: 0;
