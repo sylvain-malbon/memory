@@ -95,12 +95,6 @@
 
 <div class="actions">
     <a href="/">🏠 Retour à l'accueil</a>
-    <a href="/game">
-        <img src="/assets/images/Logo-Memory.png" 
-             alt="" 
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-        <span style="display: none;">🎴</span>
-        Nouvelle partie
-    </a>
+    <a href="/game">🔄 Nouvelle partie</a>
     <a href="/leaderboard">🏆 Hall of Fame</a>
 </div>
