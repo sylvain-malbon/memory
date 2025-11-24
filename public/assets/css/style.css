@@ -89,16 +89,33 @@ nav a {
     padding: 10px 25px;
     margin: 0;
     border: 2px solid #f5e6d3;
-    display: inline-block;
+    display: inline-flex; /* ← Changez inline-block en inline-flex */
+    align-items: center; /* ← Ajoutez pour centrer verticalement le contenu */
+    justify-content: center; /* ← Ajoutez pour centrer horizontalement */
     transition: all 0.3s;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
+    background: transparent;
+    min-height: 44px; /* ← Ajoutez une hauteur minimale fixe */
+    line-height: 1; /* ← Ajoutez pour contrôler la hauteur de ligne */
 }
 
 nav a:hover {
     background: #f5e6d3;
     color: #8b4513;
+}
+
+.nav-admin {
+    background: #f5e6d3;
+    border-color: #d4524e;
+    color: #ea322c; /* rouge entre le rouge de Memory et le red */
+}
+
+.nav-admin:hover {
+    background: #d4524e;
+    color: #f5e6d3;
+    border-color: #f5e6d3;
 }
 
 /* Container principal */
@@ -766,7 +783,6 @@ p {
 
 .stat-card:hover .stat-icon img {
     transform: translateY(0.5rem);
-}
 }
 
 /* Harmonisation du comportement des emojis fallback */
