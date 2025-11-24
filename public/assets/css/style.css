@@ -108,7 +108,7 @@ nav a:hover {
 
 nav a.nav-admin {
     background: #f5e6d3;
-    color: #ea322c;
+    color: #ea322c; /* Rouge plus vif */
     border-color: #d4524e; /* ← Rouge Memory */
 }
 
