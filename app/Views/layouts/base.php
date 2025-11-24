@@ -18,6 +18,7 @@
            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
       <span class="nav-logo-emoji" style="display: none;" role="img" aria-label="Carte Hanafuda">🎴</span>
     </a>
+<div class="nav-texture">
     <div class="nav-links">
     <a href="/">Accueil</a> 
     <a href="/game/reset">Nouvelle partie</a>
@@ -25,6 +26,7 @@
     <a href="/profile">Mon profil</a>
     <a href="/admin" class="nav-admin">⚙️ Admin</a>
     </div>
+</div>
   </nav>
 
   <main>

@@ -23,6 +23,8 @@ nav {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
 }
 
 /* Conteneur du logo avec lien */
@@ -36,6 +38,8 @@ nav > a:first-child {
     margin: 0;
     background: transparent;
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 nav > a:first-child:hover {
@@ -81,6 +85,68 @@ nav > a:first-child:hover {
     gap: 5px;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* effet texture : bois */
+.nav-texture {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-texture::before {
+    content: '';
+    position: absolute;
+   top: -35px;
+    left: -100vw;
+    right: -100vw;
+    bottom: -35px;
+background-image: 
+        repeating-linear-gradient(
+            -1deg,
+            rgba(93, 47, 10, 0.6) 0px,
+            transparent 1px,
+            transparent 3px,
+            rgba(93, 47, 10, 0.6) 4px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(93, 47, 10, 0.6) 0px,
+            transparent 1px,
+            transparent 3px,
+            rgba(93, 47, 10, 0.6) 4px
+        ),
+        repeating-linear-gradient(
+            1deg,
+            rgba(93, 47, 10, 0.6) 0px,
+            transparent 1px,
+            transparent 3px,
+            rgba(93, 47, 10, 0.6) 4px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(139, 69, 19, 0.4) 0px,
+            rgba(139, 69, 19, 0.2) 12px,
+            rgba(139, 69, 19, 0.05) 24px,
+            rgba(139, 69, 19, 0.2) 36px
+        ),
+        repeating-linear-gradient(
+            1deg,
+            rgba(139, 69, 19, 0.4) 0px,
+            rgba(139, 69, 19, 0.2) 12px,
+            rgba(139, 69, 19, 0.05) 24px,
+            rgba(139, 69, 19, 0.2) 36px
+        ),
+        repeating-linear-gradient(
+            2deg,
+            rgba(139, 69, 19, 0.4) 0px,
+            rgba(139, 69, 19, 0.2) 12px,
+            rgba(139, 69, 19, 0.05) 24px,
+            rgba(139, 69, 19, 0.2) 36px
+        );
+    pointer-events: none;
+    z-index: 0;
 }
 
 nav a {
