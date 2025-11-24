@@ -20,7 +20,7 @@
     </a>
     <div class="nav-links">
     <a href="/">Accueil</a> 
-    <a href="/game">Nouvelle partie</a>
+    <a href="/game/reset">Nouvelle partie</a>
     <a href="/leaderboard">Hall of Fame</a>
     <a href="/profile">Mon profil</a>
     <a href="/admin" class="nav-admin">⚙️ Admin</a>

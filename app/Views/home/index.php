@@ -14,7 +14,12 @@ Choisissez une action pour commencer :</p>
         <ul>
             <li><a href="/game">▶️ Lancer une nouvelle partie</a></li>
             <li><a href="/leaderboard">🏆 Voir le Hall of Fame</a></li>
-            <li><a href="/profile?player=John">👤 Consulter mon profil</a></li>
+            <li>
+                <?php 
+                $profilePlayer = $_SESSION['playerName'] ?? 'Joueur';
+                ?>
+                <a href="/profile?player=<?= urlencode($profilePlayer) ?>">👤 Consulter mon profil</a>
+            </li>
         </ul>
     </nav>
 </div>

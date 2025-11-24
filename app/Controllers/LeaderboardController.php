@@ -8,14 +8,8 @@ class LeaderboardController extends BaseController
 {
     public function index()
     {
-        // Classement des 10 meilleurs scores
-        $stmt = \Core\Database::getPdo()->query(
-            'SELECT player_name, score, created_at 
-             FROM games 
-             ORDER BY score ASC, moves ASC 
-             LIMIT 10'
-        );
-        $leaderboard = $stmt->fetchAll();
+        $gameModel = new GameModel();
+        $leaderboard = $gameModel->getTopScores(10);
 
         $this->render('leaderboard/index', [
             'title' => 'Hall of Fame',

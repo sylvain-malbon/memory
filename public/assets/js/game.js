@@ -44,7 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Sauvegarder en BDD via PHP session
         fetch('/game/update-moves', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'}
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
         })
         .then(r => r.json())
         .then(data => {

@@ -2,28 +2,18 @@
 namespace App\Models;
 
 use Core\Database;
-use App\Classes\Card;
 
 class CardModel
 {
     public function all(): array
     {
         $stmt = Database::getPdo()->query(
-            'SELECT id, name, image FROM cards ORDER BY id DESC'
+            'SELECT id, name, image FROM cards'
         );
-
-        $rows = $stmt->fetchAll();
-
-        $cards = [];
-        foreach ($rows as $row) {
-            $cards[] = new Card(
-                $row['id'],
-                $row['name'],
-                $row['image']
-            );
-        }
-
-        return $cards;
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        
+        // Transformer les tableaux en objets Card
+        return array_map(fn($row) => new Card($row), $data);
     }
 
     public function find(int $id): ?Card
@@ -31,18 +21,9 @@ class CardModel
         $stmt = Database::getPdo()->prepare(
             'SELECT id, name, image FROM cards WHERE id = :id'
         );
-
         $stmt->execute(['id' => $id]);
-        $row = $stmt->fetch();
-
-        if ($row) {
-            return new Card(
-                $row['id'],
-                $row['name'],
-                $row['image']
-            );
-        }
-
-        return null;
+        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+        
+        return $data ? new Card($data) : null;
     }
 }
