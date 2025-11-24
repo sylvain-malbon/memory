@@ -12,7 +12,7 @@ Choisissez une action pour commencer :</p>
     <div class="home-welcome">
     <nav>
         <ul>
-            <li><a href="/game">▶️ Lancer une nouvelle partie</a></li>
+            <li><a href="/game">🔄 Lancer une nouvelle partie</a></li>
             <li><a href="/leaderboard">🏆 Voir le Hall of Fame</a></li>
             <li>
                 <?php 

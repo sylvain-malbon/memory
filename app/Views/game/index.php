@@ -67,8 +67,9 @@
 
 <?php else: ?>
     <!-- Formulaire de démarrage -->
+             <h2>Démarrer une nouvelle partie</h2>
     <div class="game-start">
-        <h2>Démarrer une nouvelle partie</h2>
+
         <form method="POST" action="/game/play">
             <div class="form-group">
                 <label for="playerName">Nom du joueur :</label>
@@ -90,7 +91,7 @@
                     <option value="12">Ultime (12 paires - 24 cartes)</option>
                 </select>
             </div>
-            <button type="submit" class="btn-start-game">🎮 Commencer</button>
+            <button type="submit" class="btn-start-game">Commencer</button>
         </form>
     </div>
 
