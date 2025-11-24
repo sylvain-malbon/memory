@@ -83,15 +83,23 @@
                        title="Lettres, chiffres, espaces, tirets uniquement">
             </div>
             <div class="form-group">
-                <label for="pairs">Nombre de paires :</label>
+                <label for="pairs">Niveau de difficulté :</label>
                 <select id="pairs" name="pairs" required>
-                    <option value="3">Facile (3 paires - 6 cartes)</option>
-                    <option value="6" selected>Moyen (6 paires - 12 cartes)</option>
-                    <option value="9">Difficile (9 paires - 18 cartes)</option>
-                    <option value="12">Ultime (12 paires - 24 cartes)</option>
+                    <option value="3">🟢 Facile (6 cartes)</option>
+                    <option value="6" selected>🟡 Moyen (12 cartes)</option>
+                    <option value="9">🟠 Difficile (18 cartes)</option>
+                    <option value="12">🔴 Ultime (24 cartes)</option>
                 </select>
             </div>
-            <button type="submit" class="btn-start-game">Commencer</button>
+            <button type="submit" class="btn-start-game">
+            <img src="/assets/images/Logo-Memory.png" 
+                 alt="" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span style="display: none;">🎴</span>
+            Commencer
+        </a>
+</button>
+        
         </form>
     </div>
 
