@@ -1,7 +1,7 @@
 <h1><?= htmlspecialchars($title ?? 'Accueil', ENT_QUOTES, 'UTF-8') ?></h1>
   
     
-<p class="home-description">Bienvenue dans le jeu Memory – Nippon Edition 
+<p class="home-description">Bienvenue dans le jeu <i>Memory – Nippon Edition</i> inspiré du jeu des coquillages 
     <img src="/assets/images/Logo-Memory.png" 
          alt="Hanafuda" 
          class="logo-inline"

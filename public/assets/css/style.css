@@ -183,29 +183,6 @@ nav a:hover {
     color: #8b4513;
 }
 
-nav a:not(:first-child) {
-    color: #f5e6d3;
-    text-decoration: none;
-    padding: 10px 25px;
-    margin: 0;
-    border: 2px solid #f5e6d3;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #8b4513; /* ← Fond marron opaque */
-    min-height: 44px;
-    line-height: 1;
-}
-
-nav a:not(:first-child):hover {
-    background: #f5e6d3;
-    color: #8b4513;
-}
-
 /* Réinitialiser les styles pour le lien du logo */
 nav a.logo-style {
     padding: 0;

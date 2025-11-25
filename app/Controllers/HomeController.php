@@ -22,7 +22,7 @@ class HomeController extends BaseController
         // On affiche la vue "home/index.php"
         // avec un titre et éventuellement des liens vers le jeu
         $this->render('home/index', [
-            'title' => 'Jeu Memory',
+            'title' => 'Jeu Memory Kai-awase',
             'subtitle' => 'Choisissez une partie, consultez le classement ou votre profil'
         ]);
     }
