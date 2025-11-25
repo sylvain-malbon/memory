@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet');
 /* Reset et styles généraux */
 * {
@@ -1109,7 +1109,7 @@ p {
     box-shadow: 6px 6px 0 rgba(45, 106, 63, 0.3);
 }
 
-/* Appliquer DotGothic16 aux onglets et boutons */
+/* Appliquer VT323 aux onglets et boutons */
 .nav-links a,
 .btn-start,
 .btn-start-game,
@@ -1118,9 +1118,9 @@ p {
 .actions a,
 .btn-primary,
 .home-welcome nav ul li a {
-    font-family: 'DotGothic16', sans-serif;
+    font-family: 'VT323', monospace;
     font-size: 1.15em;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 /* Responsive */
