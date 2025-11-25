@@ -29,28 +29,22 @@ class AdminController extends BaseController
 
         try {
             $pdo = \Core\Database::getPdo();
-            
-            // Désactiver temporairement les contraintes de clés étrangères
+
+            // Compter le nombre de parties avant suppression
+            $totalGames = $pdo->query('SELECT COUNT(*) FROM games')->fetchColumn();
+
             $pdo->exec('SET FOREIGN_KEY_CHECKS = 0');
-            
-            // Vérifier si la table game_cards existe
             $tableExists = $pdo->query("SHOW TABLES LIKE 'game_cards'")->rowCount() > 0;
-            
             if ($tableExists) {
-                // Vider la table game_cards si elle existe
                 $pdo->exec('TRUNCATE TABLE game_cards');
             }
-            
-            // Vider la table games
             $pdo->exec('TRUNCATE TABLE games');
-            
-            // Réactiver les contraintes
             $pdo->exec('SET FOREIGN_KEY_CHECKS = 1');
-            
-            // Rediriger vers le leaderboard
-            header('Location: /leaderboard');
+
+            // Rediriger vers la vue admin avec le nombre de parties supprimées
+            header('Location: /admin?deleted=' . $totalGames);
             exit;
-            
+
         } catch (\Exception $e) {
             // S'assurer de réactiver les contraintes même en cas d'erreur
             try {
@@ -58,7 +52,7 @@ class AdminController extends BaseController
             } catch (\Exception $e2) {
                 // Ignorer l'erreur de réactivation
             }
-            
+
             http_response_code(500);
             echo "Erreur lors du reset : " . $e->getMessage();
         }
@@ -81,12 +75,12 @@ class AdminController extends BaseController
             $pdo = \Core\Database::getPdo();
             $stmt = $pdo->prepare('DELETE FROM games WHERE created_at < DATE_SUB(NOW(), INTERVAL :days DAY)');
             $stmt->execute(['days' => $days]);
-            
+
             $deleted = $stmt->rowCount();
-            
+
             header('Location: /admin?deleted=' . $deleted);
             exit;
-            
+
         } catch (\Exception $e) {
             http_response_code(500);
             echo "Erreur : " . $e->getMessage();

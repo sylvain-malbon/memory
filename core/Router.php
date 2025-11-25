@@ -12,8 +12,8 @@ class Router
         '/leaderboard' => ['controller' => 'LeaderboardController', 'action' => 'index'],
         '/profile' => ['controller' => 'ProfileController', 'action' => 'show'],
         '/admin' => ['controller' => 'AdminController', 'action' => 'index'],
-        '/admin/reset-leaderboard' => ['controller' => 'AdminController', 'action' => 'resetLeaderboard'],
-        '/admin/cleanup-games' => ['controller' => 'AdminController', 'action' => 'cleanupGames'],
+        '/admin/reset' => ['controller' => 'AdminController', 'action' => 'resetLeaderboard'],
+        '/admin/clean' => ['controller' => 'AdminController', 'action' => 'cleanOldGames'],
     ];
 
     public function dispatch(string $uri, string $method = 'GET')
