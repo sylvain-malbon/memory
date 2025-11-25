@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Noto Serif JP', 'MS PMincho', serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #f5e6d3;
     min-height: 100vh;
     color: #2c1810;
