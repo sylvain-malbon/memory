@@ -11,23 +11,22 @@
 <body>
 
   <nav>
-    <a href="/" aria-label="Retour à l'accueil">
+    <div class="nav-texture"></div>
+    <a class="logo-style" href="/" aria-label="Retour à l'accueil">
       <img src="/assets/images/Logo-Memory.png" 
            alt="Memory Hanafuda - Logo du jeu" 
            class="nav-logo"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
       <span class="nav-logo-emoji" style="display: none;" role="img" aria-label="Carte Hanafuda">🎴</span>
     </a>
-<div class="nav-texture">
     <div class="nav-links">
-    <a href="/">Accueil</a> 
-    <a href="/game/reset">Nouvelle partie</a>
-    <a href="/leaderboard">Hall of Fame</a>
-    <a href="/profile">Mon profil</a>
-    <a href="/admin" class="nav-admin">⚙️ Admin</a>
+        <a href="/">Accueil</a> 
+        <a href="/game/reset">Nouvelle partie</a>
+        <a href="/leaderboard">Hall of Fame</a>
+        <a href="/profile">Mon profil</a>
+        <a href="/admin" class="nav-admin">⚙️ Admin</a>
     </div>
-</div>
-  </nav>
+</nav>
 
   <main>
     <?= $content ?>

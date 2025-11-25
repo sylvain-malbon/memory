@@ -86,22 +86,27 @@ nav > a:first-child:hover {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* effet texture : bois */
 .nav-texture {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .nav-texture::before {
     content: '';
     position: absolute;
-    top: -35px;
-    left: -100vw;
-    right: -100vw;
-    bottom: -35px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: 
         /* Nœuds du bois - moyennement marqués */
         radial-gradient(ellipse 100px 30px at 20% 50%, rgba(93, 47, 10, 0.55), transparent),
@@ -143,6 +148,16 @@ nav > a:first-child:hover {
     z-index: 0;
 }
 
+/* Ajustement responsive */
+@media (max-width: 768px) {
+    .nav-texture::before {
+        max-height: none;
+        height: auto;
+        bottom: 0;
+        position: absolute;
+    }
+}
+
 nav a {
     color: #f5e6d3;
     text-decoration: none;
@@ -164,6 +179,42 @@ nav a {
 nav a:hover {
     background: #f5e6d3;
     color: #8b4513;
+}
+
+nav a:not(:first-child) {
+    color: #f5e6d3;
+    text-decoration: none;
+    padding: 10px 25px;
+    margin: 0;
+    border: 2px solid #f5e6d3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #8b4513; /* ← Fond marron opaque */
+    min-height: 44px;
+    line-height: 1;
+}
+
+nav a:not(:first-child):hover {
+    background: #f5e6d3;
+    color: #8b4513;
+}
+
+/* Réinitialiser les styles pour le lien du logo */
+nav a.logo-style {
+    padding: 0;
+    border: none;
+    background: transparent;
+    min-height: unset;
+}
+
+nav a.logo-style:hover {
+    background: transparent;
+    color: inherit;
 }
 
 nav a.nav-admin {
