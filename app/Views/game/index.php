@@ -39,10 +39,10 @@
                      data-card-name="<?= htmlspecialchars($card->getName(), ENT_QUOTES, 'UTF-8') ?>">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="/assets/images/Coquillage.png" alt="carte cachée">
+                            <img src="<?= url('/assets/images/Coquillage.png') ?>" alt="carte cachée">
                         </div>
                         <div class="card-back">
-                            <img src="/assets/images/<?= htmlspecialchars($card->getImage(), ENT_QUOTES, 'UTF-8') ?>" 
+                            <img src="<?= url('/assets/images/' . htmlspecialchars($card->getImage(), ENT_QUOTES, 'UTF-8')) ?>" 
                                  alt="<?= htmlspecialchars($card->getName(), ENT_QUOTES, 'UTF-8') ?>">
                         </div>
                     </div>
@@ -54,23 +54,20 @@
     <?php endif; ?>
 
     <div class="actions">
-        <a href="/">🏠 Accueil</a>
-        <a href="/game/reset">🔄 Nouvelle partie</a>
-        <a href="/leaderboard">🏆 Hall of Fame</a>
-        <?php 
-        $profilePlayer = $_SESSION['playerName'] ?? $playerName ?? 'Joueur';
-        ?>
-        <a href="/profile?player=<?= urlencode($profilePlayer) ?>">👤 Mon profil</a>
+        <a href="<?= url('/') ?>" >🏠 Accueil</a>
+        <a href="<?= url('/game/reset') ?>">🔄 Nouvelle partie</a>
+        <a href="<?= url('/leaderboard') ?>">🏆 Hall of Fame</a>
+        <a href="<?= url('/profile?player=' . urlencode($profilePlayer)) ?>">👤 Mon profil</a>
     </div>
 
-    <script src="/assets/js/game.js"></script>
+    <script src="<?= url('/assets/js/game.js') ?>"></script>
 
 <?php else: ?>
     <!-- Formulaire de démarrage -->
              <h2>Démarrer une nouvelle partie :</h2>
     <div class="game-start">
 
-        <form method="POST" action="/game/play">
+        <form method="POST" action="<?= url('/game/play') ?>">
             <div class="form-group">
                 <label for="playerName">Nom du joueur :</label>
                 <input type="text" 
@@ -92,19 +89,18 @@
                 </select>
             </div>
             <button type="submit" class="btn-start-game">
-            <img src="/assets/images/Logo-Memory.png" 
-                 alt="" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-            <span style="display: none;">🎴</span>
-            Commencer
-        </a>
-</button>
+                <img src="<?= url('/assets/images/Logo-Memory.png') ?>" 
+                     alt="" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span style="display: none;">🎴</span>
+                Commencer
+            </button>
         
         </form>
     </div>
 
     <div class="actions">
-        <a href="/">🏠 Retour à l'accueil</a>
-        <a href="/leaderboard">🏆 Hall of Fame</a>
+        <a href="<?= url('/') ?>" >🏠 Retour à l'accueil</a>
+        <a href="<?= url('/leaderboard') ?>">🏆 Hall of Fame</a>
     </div>
 <?php endif; ?>

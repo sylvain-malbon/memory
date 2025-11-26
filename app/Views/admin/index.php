@@ -18,7 +18,7 @@
         <h2>⚠️ Reset complet du Hall of Fame</h2>
         <p>Cette action supprime <strong>TOUTES</strong> les parties enregistrées.</p>
         
-        <form method="POST" action="/admin/reset" onsubmit="return confirm('Êtes-vous SÛR de vouloir supprimer TOUTES les parties ? Cette action est irréversible !');">
+        <form method="POST" action="<?= url('/admin/reset') ?>" onsubmit="return confirm('Êtes-vous SÛR de vouloir supprimer TOUTES les parties ? Cette action est irréversible !');">
             <div class="form-group">
                 <label for="confirm">Tapez "RESET" pour confirmer :</label>
                 <input type="text" id="confirm" name="confirm" required placeholder="RESET">
@@ -32,7 +32,7 @@
         <h2>🧹 Nettoyer les anciennes parties</h2>
         <p>Supprimer les parties plus anciennes que X jours.</p>
         
-        <form method="POST" action="/admin/clean">
+        <form method="POST" action="<?= url('/admin/clean') ?>">
             <div class="form-group">
                 <label for="days">Nombre de jours :</label>
                 <select id="days" name="days">
@@ -64,6 +64,6 @@
 </div>
 
 <div class="actions">
-    <a href="/">🏠 Retour à l'accueil</a>
-    <a href="/leaderboard">🏆 Voir le Hall of Fame</a>
+    <a href="<?= url('/') ?>" >🏠 Retour à l'accueil</a>
+    <a href="<?= url('/leaderboard') ?>">🏆 Voir le Hall of Fame</a>
 </div>

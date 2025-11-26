@@ -38,7 +38,7 @@
                             <?php endif; ?>
                         </td>
                         <td class="player">
-                            <a href="/profile?player=<?= urlencode($entry['player_name']) ?>">
+                            <a href="<?= url('/profile?player=' . urlencode($entry['player_name'])) ?>">
                                 <?= htmlspecialchars($entry['player_name'], ENT_QUOTES, 'UTF-8') ?>
                             </a>
                         </td>
@@ -64,9 +64,9 @@
 <?php endif; ?>
 
 <div class="actions">
-    <a href="/" class="btn">🏠 Accueil</a>
-    <a href="/game" class="btn btn-primary">
-        <img src="/assets/images/Logo-Memory.png" 
+    <a href="<?= url('/') ?>" class="btn">🏠 Accueil</a>
+    <a href="<?= url('/game') ?>" class="btn btn-primary">
+        <img src="<?= url('/assets/images/Logo-Memory.png') ?>" 
              alt="" 
              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
         <span style="display: none;">🎴</span>

@@ -17,7 +17,7 @@
     <div class="profile-stats">
         <div class="stat-card">
             <div class="stat-icon">
-                <img src="/assets/images/Logo-Memory.png" 
+                <img src="<?= url('/assets/images/Logo-Memory.png') ?>" 
                      alt="Parties" 
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                 <span style="display: none;">🎴</span>
@@ -83,8 +83,8 @@
         <div class="no-games-icon">😕</div>
         <p>Aucune partie jouée pour le moment.</p>
         <p>Lancez-vous et établissez votre premier record !</p>
-        <a href="/game" class="btn-start-game">
-            <img src="/assets/images/Logo-Memory.png" 
+        <a href="<?= url('/game') ?>" class="btn-start-game">
+            <img src="<?= url('/assets/images/Logo-Memory.png') ?>" 
                  alt="" 
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
             <span style="display: none;">🎴</span>
@@ -94,7 +94,7 @@
 <?php endif; ?>
 
 <div class="actions">
-    <a href="/">🏠 Retour à l'accueil</a>
-    <a href="/game">🔄 Nouvelle partie</a>
-    <a href="/leaderboard">🏆 Hall of Fame</a>
+    <a href="<?= url('/') ?>" >🏠 Retour à l'accueil</a>
+    <a href="<?= url('/game') ?>">🔄 Nouvelle partie</a>
+    <a href="<?= url('/leaderboard') ?>">🏆 Hall of Fame</a>
 </div>

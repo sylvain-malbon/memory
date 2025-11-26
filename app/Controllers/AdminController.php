@@ -42,7 +42,7 @@ class AdminController extends BaseController
             $pdo->exec('SET FOREIGN_KEY_CHECKS = 1');
 
             // Rediriger vers la vue admin avec le nombre de parties supprimées
-            header('Location: /admin?deleted=' . $totalGames);
+            header('Location: ' . url('/admin?deleted=' . $totalGames));
             exit;
 
         } catch (\Exception $e) {
@@ -78,7 +78,7 @@ class AdminController extends BaseController
 
             $deleted = $stmt->rowCount();
 
-            header('Location: /admin?deleted=' . $deleted);
+            header('Location: ' . url('/admin?deleted=' . $deleted));
             exit;
 
         } catch (\Exception $e) {

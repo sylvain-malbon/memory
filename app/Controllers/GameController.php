@@ -22,7 +22,7 @@ class GameController extends BaseController
                 if (count($allCards) < $game['pairs']) {
                     $_SESSION['error'] = 'Pas assez de cartes disponibles';
                     unset($_SESSION['gameId']);
-                    header('Location: /game');
+                    header('Location: ' . url('/game'));
                     exit;
                 }
                 
@@ -62,7 +62,7 @@ class GameController extends BaseController
         // Vérifier que c'est une requête POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $_SESSION['error'] = 'Méthode non autorisée';
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
         }
         
@@ -75,13 +75,13 @@ class GameController extends BaseController
         
         if (empty($playerName)) {
             $_SESSION['error'] = 'Le nom de joueur est obligatoire';
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
         }
         
         if (!preg_match('/^[a-zA-Z0-9\s\-_]{1,50}$/u', $playerName)) {
             $_SESSION['error'] = 'Nom invalide (lettres, chiffres, espaces, tirets uniquement)';
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
         }
         
@@ -90,7 +90,7 @@ class GameController extends BaseController
         
         if ($pairs === false || $pairs === null || $pairs < 3 || $pairs > 12) {
             $_SESSION['error'] = 'Nombre de paires invalide (entre 3 et 12)';
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
         }
         
@@ -105,13 +105,13 @@ class GameController extends BaseController
             $_SESSION['playerName'] = htmlspecialchars($playerName, ENT_QUOTES, 'UTF-8');
             
             // Rediriger vers le jeu
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
             
         } catch (\Exception $e) {
             $_SESSION['error'] = 'Erreur lors de la création de la partie';
             error_log("Erreur GameController::play() : " . $e->getMessage());
-            header('Location: /game');
+            header('Location: ' . url('/game'));
             exit;
         }
     }
@@ -169,7 +169,7 @@ class GameController extends BaseController
         unset($_SESSION['playerName']);
         
         // Rediriger vers le formulaire de nouvelle partie
-        header('Location: /game');
+        header('Location: ' . url('/game'));
         exit;
     }
 }

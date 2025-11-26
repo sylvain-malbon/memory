@@ -2,7 +2,7 @@
   
     
 <p class="home-description">Bienvenue dans l'édition de Memory inspirée du <i>jeu des coquillages</i> japonais 
-    <img src="/assets/images/Logo-Memory.png" 
+    <img src="<?= url('/assets/images/Logo-Memory.png') ?>" 
          alt="Hanafuda" 
          class="logo-inline"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
@@ -12,13 +12,13 @@
     <div class="home-welcome">
     <nav>
         <ul>
-            <li><a href="/game">🔄 Lancer une nouvelle partie</a></li>
-            <li><a href="/leaderboard">🏆 Voir le Hall of Fame</a></li>
+            <li><a href="<?= url('/game') ?>">🔄 Lancer une nouvelle partie</a></li>
+            <li><a href="<?= url('/leaderboard') ?>">🏆 Voir le Hall of Fame</a></li>
             <li>
                 <?php 
                 $profilePlayer = $_SESSION['playerName'] ?? 'Joueur';
                 ?>
-                <a href="/profile?player=<?= urlencode($profilePlayer) ?>">👤 Consulter mon profil</a>
+                <a href="<?= url('/profile?player=' . urlencode($profilePlayer)) ?>">👤 Consulter mon profil</a>
             </li>
         </ul>
     </nav>
