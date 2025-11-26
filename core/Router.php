@@ -3,48 +3,42 @@ namespace Core;
 
 class Router
 {
-    private $routes = [
-        '/' => ['controller' => 'HomeController', 'action' => 'index'],
-        '/game' => ['controller' => 'GameController', 'action' => 'start'],
-        '/game/reset' => ['controller' => 'GameController', 'action' => 'reset'],
-        '/game/play' => ['controller' => 'GameController', 'action' => 'play'],
-        '/game/update-moves' => ['controller' => 'GameController', 'action' => 'updateMoves'],
-        '/leaderboard' => ['controller' => 'LeaderboardController', 'action' => 'index'],
-        '/profile' => ['controller' => 'ProfileController', 'action' => 'show'],
-        '/admin' => ['controller' => 'AdminController', 'action' => 'index'],
-        '/admin/reset' => ['controller' => 'AdminController', 'action' => 'resetLeaderboard'],
-        '/admin/clean' => ['controller' => 'AdminController', 'action' => 'cleanOldGames'],
-    ];
+    private array $routes = ['GET' => [], 'POST' => []];
 
-    public function dispatch(string $uri, string $method = 'GET')
+    public function get(string $path, string $action): void
     {
-        // Enlever les paramètres de query string
-        $uri = strtok($uri, '?');
-        
-        if (!isset($this->routes[$uri])) {
-            http_response_code(404);
-            echo "404 - Page non trouvée";
-            return;
+        $this->routes['GET'][$path] = $action;
+    }
+
+    public function post(string $path, string $action): void
+    {
+        $this->routes['POST'][$path] = $action;
+    }
+
+    public function dispatch(string $uri, string $method): void
+    {
+        $path = parse_url($uri, PHP_URL_PATH) ?? '/';
+
+        foreach ($this->routes[$method] ?? [] as $route => $action) {
+            if ($route === $path) {
+                [$class, $ctrlMethod] = explode('@', $action);
+                if (!class_exists($class)) {
+                    http_response_code(500);
+                    echo "Erreur : Le contrôleur $class n'existe pas";
+                    return;
+                }
+                $controller = new $class();
+                if (!method_exists($controller, $ctrlMethod)) {
+                    http_response_code(500);
+                    echo "Erreur : La méthode $ctrlMethod n'existe pas dans $class";
+                    return;
+                }
+                $controller->$ctrlMethod();
+                return;
+            }
         }
 
-        $route = $this->routes[$uri];
-        $controllerName = "App\\Controllers\\" . $route['controller'];
-        $action = $route['action'];
-
-        if (!class_exists($controllerName)) {
-            http_response_code(500);
-            echo "Erreur : Le contrôleur $controllerName n'existe pas";
-            return;
-        }
-
-        $controller = new $controllerName();
-
-        if (!method_exists($controller, $action)) {
-            http_response_code(500);
-            echo "Erreur : La méthode $action n'existe pas dans $controllerName";
-            return;
-        }
-
-        $controller->$action();
+        http_response_code(404);
+        echo "404 - Page non trouvée";
     }
 }
