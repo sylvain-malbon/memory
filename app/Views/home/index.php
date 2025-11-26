@@ -1,13 +1,13 @@
 <h1><?= htmlspecialchars($title ?? 'Accueil', ENT_QUOTES, 'UTF-8') ?></h1>
   
     
-<p class="home-description">Bienvenue dans le jeu <i>Memory – Nippon Edition</i> inspiré du jeu des coquillages 
+<p class="home-description">Bienvenue dans l'édition de Memory inspirée du <i>jeu des coquillages</i> japonais 
     <img src="/assets/images/Logo-Memory.png" 
          alt="Hanafuda" 
          class="logo-inline"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
-    <span class="logo-inline-fallback">🎴</span><br>
-Choisissez une action pour commencer :</p>
+    <span class="logo-inline-fallback">🎴</span><br></p>
+<h2>Choisissez une action pour commencer :</h2>
 
     <div class="home-welcome">
     <nav>

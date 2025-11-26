@@ -9,10 +9,8 @@
 
 <h1>🏆 <?= htmlspecialchars($title ?? 'Hall of Fame', ENT_QUOTES, 'UTF-8') ?> 🏆</h1>
 
-<p class="leaderboard-description">
-    Les 10 meilleurs joueurs (score = nombre de coups / nombre de paires)<br>
-    <em>Plus le score est bas, meilleure est la performance !</em>
-</p>
+<p class="leaderboard-description">Plus le score est bas, meilleure est la performance (coups / paires).</p>
+<h2>Les 10 meilleurs scores :</h2>
 
 <?php if (isset($leaderboard) && !empty($leaderboard)): ?>
     <div class="leaderboard-container">

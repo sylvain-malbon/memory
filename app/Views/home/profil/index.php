@@ -11,7 +11,7 @@
 
 <h1><?= htmlspecialchars($title ?? 'Profil', ENT_QUOTES, 'UTF-8') ?></h1>
 
-<h2>Historique des parties de <?= htmlspecialchars($playerName ?? 'Joueur', ENT_QUOTES, 'UTF-8') ?></h2>
+<h2>Historique des parties de <i><?= htmlspecialchars($playerName ?? 'joueur', ENT_QUOTES, 'UTF-8') ?> :</i></h2>
 
 <?php if (!empty($games)): ?>
     <div class="profile-stats">

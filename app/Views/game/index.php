@@ -67,7 +67,7 @@
 
 <?php else: ?>
     <!-- Formulaire de démarrage -->
-             <h2>Démarrer une nouvelle partie</h2>
+             <h2>Démarrer une nouvelle partie :</h2>
     <div class="game-start">
 
         <form method="POST" action="/game/play">
@@ -85,8 +85,8 @@
             <div class="form-group">
                 <label for="pairs">Niveau de difficulté :</label>
                 <select id="pairs" name="pairs" required>
-                    <option value="3">🟢 Facile (6 cartes)</option>
-                    <option value="6" selected>🟡 Moyen (12 cartes)</option>
+                    <option value="3" selected>🟢 Facile (6 cartes)</option>
+                    <option value="6" >🟡 Moyen (12 cartes)</option>
                     <option value="9">🟠 Difficile (18 cartes)</option>
                     <option value="12">🔴 Ultime (24 cartes)</option>
                 </select>
