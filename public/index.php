@@ -2,12 +2,15 @@
 session_start();
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../core/config.php';
-require_once __DIR__ . '/../core/helpers.php';
+require_once __DIR__ . '/../core/helpers.php'; // si helpers.php n’est pas PSR‑4
 
 use Core\Router;
 use Core\Config;
 
+// Charger la config
+Config::load();
+
+// Initialiser le router
 $router = new Router();
 
 // Déclaration des routes
@@ -22,9 +25,8 @@ $router->get('/admin', 'App\Controllers\AdminController@index');
 $router->post('/admin/reset', 'App\Controllers\AdminController@resetLeaderboard');
 $router->post('/admin/clean', 'App\Controllers\AdminController@cleanOldGames');
 
-// Récupérer l'URI et la méthode HTTP
+// Dispatcher la requête
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Dispatcher la requête
 $router->dispatch($uri, $method);

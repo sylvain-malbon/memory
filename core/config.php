@@ -11,8 +11,10 @@ class Config
             $configFile = dirname(__DIR__) . '/config/config.php';
             if (file_exists($configFile)) {
                 require $configFile;
-                self::$config['BASE_PATH'] = defined('BASE_PATH') ? BASE_PATH : '/';
             }
+            self::$config['BASE_PATH'] = defined('BASE_PATH') && BASE_PATH !== ''
+                ? BASE_PATH
+                : '/';
         }
     }
 
@@ -22,12 +24,11 @@ class Config
         return self::$config[$key] ?? $default;
     }
 
-    // Ajout de la méthode url
     public static function url(string $path = ''): string
     {
         self::load();
         $base = rtrim(self::$config['BASE_PATH'] ?? '/', '/');
         $path = ltrim($path, '/');
-        return $base . ($path ? '/' . $path : '');
+        return $path === '' ? $base . '/' : $base . '/' . $path;
     }
 }
