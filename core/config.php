@@ -11,9 +11,7 @@ class Config
             $configFile = dirname(__DIR__) . '/config/config.php';
             if (file_exists($configFile)) {
                 require $configFile;
-                self::$config['BASE_PATH'] = defined('BASE_PATH')
-                    ? constant('BASE_PATH')
-                    : '/';
+                self::$config['BASE_PATH'] = defined('BASE_PATH') ? BASE_PATH : '/';
             }
         }
     }
