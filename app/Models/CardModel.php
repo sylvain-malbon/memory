@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use Core\Database;
-use App\Classes\Card; // <-- Ajoute cette ligne pour utiliser la bonne classe
+use App\Classes\Card;
 
 class CardModel
 {
